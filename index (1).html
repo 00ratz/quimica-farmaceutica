@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Malla Interactiva - Química Farmacéutica</title>
+<style>
+:root{
+  --pink:#F8D7E9;
+  --lilac:#E8D9FF;
+  --green:#D5F9D7;
+  --locked:#eeeeee;
+  --text:#333333;
+  font-family: 'Helvetica Neue',Arial,sans-serif;
+}
+body{
+  margin:0;
+  padding:1rem;
+  background:var(--lilac);
+}
+h1{
+  text-align:center;
+  margin-bottom:0;
+}
+#creditCounter{
+  text-align:center;
+  font-weight:bold;
+  margin:0.5rem 0 1rem;
+}
+.semester{
+  margin-bottom:2rem;
+}
+.semester h2{
+  background:var(--pink);
+  padding:0.5rem;
+  border-radius:8px;
+  margin:0 0 0.5rem 0;
+  text-align:center;
+}
+.courses{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:0.5rem;
+}
+.course{
+  background:var(--pink);
+  padding:0.5rem;
+  border-radius:8px;
+  cursor:pointer;
+  transition:opacity 0.2s ease-in-out;
+  text-align:center;
+}
+.course.locked{
+  background:var(--locked);
+  cursor:default;
+  opacity:0.6;
+  text-decoration:none;
+}
+.course.completed{
+  background:var(--green);
+  text-decoration:line-through;
+}
+.course .credits{
+  font-size:0.8rem;
+  color:var(--text);
+  display:block;
+}
+</style>
+</head>
+<body>
+<h1>Malla Interactiva - Química Farmacéutica</h1>
+<div id="creditCounter">Créditos completados: <span id="completedCredits">0</span> / <span id="totalCredits">0</span></div>
+<div class="semester" data-semester="1">
+<h2>Semestre 1</h2>
+<div class="courses">
+<div class="course" data-name="Matemáticas" data-credits="4" data-prereqs="" data-mincredits="0">Matemáticas<span class="credits">(4 CR)</span></div>
+<div class="course" data-name="Química General" data-credits="4" data-prereqs="" data-mincredits="0">Química General<span class="credits">(4 CR)</span></div>
+<div class="course" data-name="Lab Química General" data-credits="1" data-prereqs="" data-mincredits="0">Lab Química General<span class="credits">(1 CR)</span></div>
+<div class="course" data-name="Seguridad Y Salud En El Trabajo" data-credits="1" data-prereqs="" data-mincredits="0">Seguridad Y Salud En El Trabajo<span class="credits">(1 CR)</span></div>
+<div class="course" data-name="Técnicas De La Comunicación" data-credits="2" data-prereqs="" data-mincredits="0">Técnicas De La Comunicación<span class="credits">(2 CR)</span></div>
+<div class="course" data-name="Desarrollo Humano" data-credits="1" data-prereqs="" data-mincredits="0">Desarrollo Humano<span class="credits">(1 CR)</span></div>
+<div class="course" data-name="Introducción A La Farmacia" data-credits="2" data-prereqs="" data-mincredits="0">Introducción A La Farmacia<span class="credits">(2 CR)</span></div>
+<div class="course" data-name="Inglés I" data-credits="2" data-prereqs="" data-mincredits="0">Inglés I<span class="credits">(2 CR)</span></div>
+</div></div>
+<div class="semester" data-semester="2">
+<h2>Semestre 2</h2>
+<div class="courses">
+<div class="course" data-name="Química Orgánica" data-credits="4" data-prereqs="Química General|Lab Química General" data-mincredits="0">Química Orgánica<span class="credits">(4 CR)</span></div>
+<div class="course" data-name="Lab Química Orgánica" data-credits="1" data-prereqs="Química General|Lab Química General" data-mincredits="0">Lab Química Orgánica<span class="credits">(1 CR)</span></div>
+<div class="course" data-name="Bioestadística" data-credits="2" data-prereqs="Matemáticas" data-mincredits="0">Bioestadística<span class="credits">(2 CR)</span></div>
+<div class="course" data-name="Química Analítica" data-credits="4" data-prereqs="Química General|Lab Química General" data-mincredits="0">Química Analítica<span class="credits">(4 CR)</span></div>
+<div class="course" data-name="Lab Química Analítica" data-credits="1" data-prereqs="Química General|Lab Química General" data-mincredits="0">Lab Química Analítica<span class="credits">(1 CR)</span></div>
+<div class="course" data-name="Seminario De Matemáticas" data-credits="1" data-prereqs="Matemáticas" data-mincredits="0">Seminario De Matemáticas<span class="credits">(1 CR)</span></div>
+<div class="course" data-name="Salud Pública" data-credits="1" data-prereqs="Seguridad Y Salud En El Trabajo" data-mincredits="0">Salud Pública<span class="credits">(1 CR)</span></div>
+<div class="course" data-name="Metodología Investigación Cualitativa" data-credits="1" data-prereqs="Matemáticas" data-mincredits="0">Metodología Investigación Cualitativa<span class="credits">(1 CR)</span></div>
+<div class="course" data-name="Inglés II" data-credits="2" data-prereqs="Inglés I" data-mincredits="0">Inglés II<span class="credits">(2 CR)</span></div>
+</div></div>
+<div class="semester" data-semester="3">
+<h2>Semestre 3</h2>
+<div class="courses">
+<div class="course" data-name="Formación Ciudadana Y Constitucional" data-credits="1" data-prereqs="" data-mincredits="30">Formación Ciudadana Y Constitucional<span class="credits">(1 CR)</span></div>
+<div class="course" data-name="Física" data-credits="3" data-prereqs="Matemáticas" data-mincredits="0">Física<span class="credits">(3 CR)</span></div>
+<div class="course" data-name="Biología Celular Molecular" data-credits="3" data-prereqs="Química Analítica|Lab Química Analítica" data-mincredits="0">Biología Celular Molecular<span class="credits">(3 CR)</span></div>
+<div class="course" data-name="Bioquímica" data-credits="3" data-prereqs="Química Analítica|Lab Química Analítica" data-mincredits="0">Bioquímica<span class="credits">(3 CR)</span></div>
+<div class="course" data-name="Lab Bioquímica" data-credits="1" data-prereqs="Química Analítica|Lab Química Analítica" data-mincredits="0">Lab Bioquímica<span class="credits">(1 CR)</span></div>
+<div class="course" data-name="Bioética" data-credits="1" data-prereqs="Introducción A La Farmacia" data-mincredits="0">Bioética<span class="credits">(1 CR)</span></div>
+<div class="course" data-name="Prácticas Comunidad" data-credits="1" data-prereqs="Salud Pública|Metodología Investigación Cualitativa" data-mincredits="0">Prácticas Comunidad<span class="credits">(1 CR)</span></div>
+<div class="course" data-name="Metodología Investigación Cuantitativa" data-credits="2" data-prereqs="Metodología Investigación Cualitativa" data-mincredits="0">Metodología Investigación Cuantitativa<span class="credits">(2 CR)</span></div>
+<div class="course" data-name="Inglés III" data-credits="2" data-prereqs="Inglés II" data-mincredits="0">Inglés III<span class="credits">(2 CR)</span></div>
+</div></div>
+<div class="semester" data-semester="4">
+<h2>Semestre 4</h2>
+<div class="courses">
+<div class="course" data-name="Biotecnología" data-credits="2" data-prereqs="" data-mincredits="0">Biotecnología<span class="credits">(2 CR)</span></div>
+<div class="course" data-name="Lab Biotecnología" data-credits="2" data-prereqs="" data-mincredits="0">Lab Biotecnología<span class="credits">(2 CR)</span></div>
+<div class="course" data-name="Fisioanatomía" data-credits="3" data-prereqs="Bioquímica" data-mincredits="0">Fisioanatomía<span class="credits">(3 CR)</span></div>
+<div class="course" data-name="Lab Fisioanatomía" data-credits="1" data-prereqs="Bioquímica" data-mincredits="0">Lab Fisioanatomía<span class="credits">(1 CR)</span></div>
+<div class="course" data-name="Fisicoquímica" data-credits="3" data-prereqs="Física|Química Orgánica" data-mincredits="0">Fisicoquímica<span class="credits">(3 CR)</span></div>
+<div class="course" data-name="Lab Fisicoquímica" data-credits="1" data-prereqs="Física|Química Orgánica" data-mincredits="0">Lab Fisicoquímica<span class="credits">(1 CR)</span></div>
+<div class="course" data-name="Microbiología" data-credits="2" data-prereqs="Biología Celular Molecular" data-mincredits="0">Microbiología<span class="credits">(2 CR)</span></div>
+<div class="course" data-name="Lab Microbiología" data-credits="1" data-prereqs="Biología Celular Molecular" data-mincredits="0">Lab Microbiología<span class="credits">(1 CR)</span></div>
+<div class="course" data-name="Inglés IV" data-credits="2" data-prereqs="Inglés III" data-mincredits="0">Inglés IV<span class="credits">(2 CR)</span></div>
+</div></div>
+<div class="semester" data-semester="5">
+<h2>Semestre 5</h2>
+<div class="courses">
+<div class="course" data-name="Análisis Instrumental" data-credits="3" data-prereqs="Fisicoquímica|Lab Fisicoquímica" data-mincredits="0">Análisis Instrumental<span class="credits">(3 CR)</span></div>
+<div class="course" data-name="Lab Análisis Instrumental" data-credits="1" data-prereqs="Fisicoquímica|Lab Fisicoquímica" data-mincredits="0">Lab Análisis Instrumental<span class="credits">(1 CR)</span></div>
+<div class="course" data-name="Farmacognosia" data-credits="3" data-prereqs="Química Orgánica|Lab Química Orgánica" data-mincredits="0">Farmacognosia<span class="credits">(3 CR)</span></div>
+<div class="course" data-name="Lab Farmacognosia" data-credits="1" data-prereqs="Química Orgánica|Lab Química Orgánica" data-mincredits="0">Lab Farmacognosia<span class="credits">(1 CR)</span></div>
+<div class="course" data-name="Biofarmacia Y Farmacocinética" data-credits="2" data-prereqs="Fisioanatomía|Fisicoquímica" data-mincredits="0">Biofarmacia Y Farmacocinética<span class="credits">(2 CR)</span></div>
+<div class="course" data-name="Operaciones Unitarias Farmacéuticas" data-credits="2" data-prereqs="Fisicoquímica" data-mincredits="0">Operaciones Unitarias Farmacéuticas<span class="credits">(2 CR)</span></div>
+<div class="course" data-name="Prácticas Servicios Y Establecimientos Farmacéuticos" data-credits="1" data-prereqs="Prácticas Comunidad|Biotecnología" data-mincredits="0">Prácticas Servicios Y Establecimientos Farmacéuticos<span class="credits">(1 CR)</span></div>
+<div class="course" data-name="Legislación Farmacéutica" data-credits="1" data-prereqs="Biotecnología" data-mincredits="0">Legislación Farmacéutica<span class="credits">(1 CR)</span></div>
+<div class="course" data-name="Diseño De Experimentos" data-credits="1" data-prereqs="Metodología Investigación Cuantitativa" data-mincredits="0">Diseño De Experimentos<span class="credits">(1 CR)</span></div>
+<div class="course" data-name="Inglés V" data-credits="2" data-prereqs="Inglés IV" data-mincredits="0">Inglés V<span class="credits">(2 CR)</span></div>
+</div></div>
+<div class="semester" data-semester="6">
+<h2>Semestre 6</h2>
+<div class="courses">
+<div class="course" data-name="Fitoquímica" data-credits="2" data-prereqs="Farmacognosia" data-mincredits="0">Fitoquímica<span class="credits">(2 CR)</span></div>
+<div class="course" data-name="Lab Fitoquímica" data-credits="2" data-prereqs="Farmacognosia" data-mincredits="0">Lab Fitoquímica<span class="credits">(2 CR)</span></div>
+<div class="course" data-name="Tecno Farmacéutica I" data-credits="3" data-prereqs="Operaciones Unitarias Farmacéuticas" data-mincredits="0">Tecno Farmacéutica I<span class="credits">(3 CR)</span></div>
+<div class="course" data-name="Lab Tecno Farmacéutica I" data-credits="2" data-prereqs="Operaciones Unitarias Farmacéuticas" data-mincredits="0">Lab Tecno Farmacéutica I<span class="credits">(2 CR)</span></div>
+<div class="course" data-name="Electiva Socio-humanística" data-credits="1" data-prereqs="Legislación Farmacéutica" data-mincredits="0">Electiva Socio-humanística<span class="credits">(1 CR)</span></div>
+<div class="course" data-name="Análisis Y Control Medicamentos I" data-credits="3" data-prereqs="Operaciones Unitarias Farmacéuticas|Análisis Instrumental|Lab Análisis Instrumental" data-mincredits="0">Análisis Y Control Medicamentos I<span class="credits">(3 CR)</span></div>
+<div class="course" data-name="Lab Análisis Y Control Medicamentos I" data-credits="2" data-prereqs="Operaciones Unitarias Farmacéuticas|Análisis Instrumental|Lab Análisis Instrumental" data-mincredits="0">Lab Análisis Y Control Medicamentos I<span class="credits">(2 CR)</span></div>
+<div class="course" data-name="Prácticas Sector Productivo" data-credits="2" data-prereqs="Prácticas Servicios Y Establecimientos Farmacéuticos" data-mincredits="0">Prácticas Sector Productivo<span class="credits">(2 CR)</span></div>
+</div></div>
+<div class="semester" data-semester="7">
+<h2>Semestre 7</h2>
+<div class="courses">
+<div class="course" data-name="Tecno Farmacéutica II" data-credits="3" data-prereqs="Tecno Farmacéutica I|Lab Tecno Farmacéutica I" data-mincredits="0">Tecno Farmacéutica II<span class="credits">(3 CR)</span></div>
+<div class="course" data-name="Lab Tecno Farmacéutica II" data-credits="2" data-prereqs="Tecno Farmacéutica I|Lab Tecno Farmacéutica I" data-mincredits="0">Lab Tecno Farmacéutica II<span class="credits">(2 CR)</span></div>
+<div class="course" data-name="Administración Farmacéutica" data-credits="2" data-prereqs="Legislación Farmacéutica" data-mincredits="0">Administración Farmacéutica<span class="credits">(2 CR)</span></div>
+<div class="course" data-name="Análisis Y Control Medicamentos II" data-credits="2" data-prereqs="Análisis Y Control Medicamentos I|Lab Análisis Y Control Medicamentos I|Tecno Farmacéutica I|Lab Tecno Farmacéutica I" data-mincredits="0">Análisis Y Control Medicamentos II<span class="credits">(2 CR)</span></div>
+<div class="course" data-name="Lab Análisis Y Control Medicamentos II" data-credits="1" data-prereqs="Análisis Y Control Medicamentos I|Lab Análisis Y Control Medicamentos I|Tecno Farmacéutica I|Lab Tecno Farmacéutica I" data-mincredits="0">Lab Análisis Y Control Medicamentos II<span class="credits">(1 CR)</span></div>
+<div class="course" data-name="Prácticas Elaboración Proyecto" data-credits="2" data-prereqs="Prácticas Sector Productivo" data-mincredits="0">Prácticas Elaboración Proyecto<span class="credits">(2 CR)</span></div>
+<div class="course" data-name="Cosméticos" data-credits="2" data-prereqs="Tecno Farmacéutica I|Lab Tecno Farmacéutica I" data-mincredits="0">Cosméticos<span class="credits">(2 CR)</span></div>
+<div class="course" data-name="Lab Cosméticos" data-credits="1" data-prereqs="Tecno Farmacéutica I|Lab Tecno Farmacéutica I" data-mincredits="0">Lab Cosméticos<span class="credits">(1 CR)</span></div>
+</div></div>
+<div class="semester" data-semester="8">
+<h2>Semestre 8</h2>
+<div class="courses">
+<div class="course" data-name="Toxicología" data-credits="2" data-prereqs="Análisis Y Control Medicamentos II|Lab Análisis Y Control Medicamentos II" data-mincredits="0">Toxicología<span class="credits">(2 CR)</span></div>
+<div class="course" data-name="Lab Toxicología" data-credits="1" data-prereqs="Análisis Y Control Medicamentos II|Lab Análisis Y Control Medicamentos II" data-mincredits="0">Lab Toxicología<span class="credits">(1 CR)</span></div>
+<div class="course" data-name="Seminario De Farmacología" data-credits="1" data-prereqs="Fitoquímica|Biofarmacia Y Farmacocinética" data-mincredits="0">Seminario De Farmacología<span class="credits">(1 CR)</span></div>
+<div class="course" data-name="Nutrición Y Bromatología" data-credits="2" data-prereqs="Tecno Farmacéutica I|Biofarmacia Y Farmacocinética" data-mincredits="0">Nutrición Y Bromatología<span class="credits">(2 CR)</span></div>
+<div class="course" data-name="Lab Nutrición Y Bromatología" data-credits="1" data-prereqs="Tecno Farmacéutica II|Biofarmacia Y Farmacocinética" data-mincredits="0">Lab Nutrición Y Bromatología<span class="credits">(1 CR)</span></div>
+<div class="course" data-name="Farmacología" data-credits="4" data-prereqs="Fitoquímica|Biofarmacia Y Farmacocinética" data-mincredits="0">Farmacología<span class="credits">(4 CR)</span></div>
+<div class="course" data-name="Farmacia Hospitalaria Y Ambulatoria" data-credits="2" data-prereqs="Análisis Y Control Medicamentos II|Prácticas Servicios Y Establecimientos Farmacéuticos" data-mincredits="0">Farmacia Hospitalaria Y Ambulatoria<span class="credits">(2 CR)</span></div>
+<div class="course" data-name="Prácticas Desarrollo Proyecto I" data-credits="2" data-prereqs="Prácticas Elaboración Proyecto" data-mincredits="0">Prácticas Desarrollo Proyecto I<span class="credits">(2 CR)</span></div>
+</div></div>
+<div class="semester" data-semester="9">
+<h2>Semestre 9</h2>
+<div class="courses">
+<div class="course" data-name="Electiva Administrativa" data-credits="1" data-prereqs="Tecno Farmacéutica II|Administración Farmacéutica" data-mincredits="0">Electiva Administrativa<span class="credits">(1 CR)</span></div>
+<div class="course" data-name="Farmacia Clínica" data-credits="4" data-prereqs="Farmacología|Farmacia Hospitalaria Y Ambulatoria" data-mincredits="0">Farmacia Clínica<span class="credits">(4 CR)</span></div>
+<div class="course" data-name="Prácticas Farmacia Clínica" data-credits="3" data-prereqs="Farmacología|Farmacia Hospitalaria Y Ambulatoria" data-mincredits="0">Prácticas Farmacia Clínica<span class="credits">(3 CR)</span></div>
+<div class="course" data-name="Química Farmacéutica" data-credits="2" data-prereqs="Análisis Y Control Medicamentos II|Farmacología" data-mincredits="0">Química Farmacéutica<span class="credits">(2 CR)</span></div>
+<div class="course" data-name="Lab Química Farmacéutica" data-credits="1" data-prereqs="Análisis Y Control Medicamentos II|Farmacología" data-mincredits="0">Lab Química Farmacéutica<span class="credits">(1 CR)</span></div>
+<div class="course" data-name="Farmacia Magistral" data-credits="2" data-prereqs="Tecno Farmacéutica II|Lab Tecno Farmacéutica II" data-mincredits="0">Farmacia Magistral<span class="credits">(2 CR)</span></div>
+<div class="course" data-name="Lab Farmacia Magistral" data-credits="1" data-prereqs="Tecno Farmacéutica II|Lab Tecno Farmacéutica II" data-mincredits="0">Lab Farmacia Magistral<span class="credits">(1 CR)</span></div>
+<div class="course" data-name="Prácticas Desarrollo Proyecto II" data-credits="2" data-prereqs="Prácticas Desarrollo Proyecto I" data-mincredits="0">Prácticas Desarrollo Proyecto II<span class="credits">(2 CR)</span></div>
+<div class="course" data-name="Aseguramiento De La Calidad" data-credits="1" data-prereqs="Tecno Farmacéutica II" data-mincredits="0">Aseguramiento De La Calidad<span class="credits">(1 CR)</span></div>
+</div></div>
+<div class="semester" data-semester="10">
+<h2>Semestre 10</h2>
+<div class="courses">
+<div class="course" data-name="Práctica Académica Final" data-credits="16" data-prereqs="" data-mincredits="149">Práctica Académica Final<span class="credits">(16 CR)</span></div>
+</div></div>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+ const courses = document.querySelectorAll('.course');
+ let completed = new Set();
+ let completedCredits = 0;
+ const completedSpan = document.getElementById('completedCredits');
+ const totalSpan = document.getElementById('totalCredits');
+ const totalCredits = [...courses].reduce((sum,c)=> sum + Number(c.dataset.credits),0);
+ totalSpan.textContent = totalCredits;
+
+ function updateCredits(){
+    completedCredits = [...completed].reduce((sum,name)=>{
+        const elem = document.querySelector(`.course[data-name="${CSS.escape(name)}"]`);
+        return elem ? sum + Number(elem.dataset.credits) : sum;
+    },0);
+    completedSpan.textContent = completedCredits;
+ }
+
+ function isUnlocked(elem){
+    const prereqAttr = elem.dataset.prereqs;
+    const prereqs = prereqAttr ? prereqAttr.split('|').filter(Boolean) : [];
+    const minCredits = Number(elem.dataset.mincredits || 0);
+    const prereqsOk = prereqs.every(p=> completed.has(p));
+    const creditsOk = completedCredits >= minCredits;
+    return prereqsOk && creditsOk;
+ }
+
+ function refreshState(){
+    courses.forEach(elem=>{
+        const name = elem.dataset.name;
+        if(completed.has(name)){
+            elem.classList.remove('locked');
+            elem.classList.add('completed');
+        }else{
+            if(isUnlocked(elem)){
+                elem.classList.remove('locked');
+                elem.classList.remove('completed');
+            }else{
+                elem.classList.add('locked');
+                elem.classList.remove('completed');
+            }
+        }
+    });
+ }
+
+ document.body.addEventListener('click',(e)=>{
+    const elem = e.target.closest('.course');
+    if(!elem) return;
+    const name = elem.dataset.name;
+    if(elem.classList.contains('locked')) return;
+    if(completed.has(name)){
+        completed.delete(name);
+    }else{
+        completed.add(name);
+    }
+    updateCredits();
+    refreshState();
+ });
+
+ // initial
+ refreshState();
+ updateCredits();
+});
+</script>
+</body></html>
